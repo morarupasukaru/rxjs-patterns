@@ -1,0 +1,15 @@
+h1, h2 {
+  text-align: center;
+}
+
+.no-indicators {
+  color: #dd514c;
+}
+
+a {
+  margin-top: 1em;
+}
+
+.refresh {
+  text-align: left;
+}

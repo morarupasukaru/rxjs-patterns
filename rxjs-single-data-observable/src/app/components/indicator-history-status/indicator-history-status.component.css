@@ -1,0 +1,22 @@
+div {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+}
+
+.l-box {
+  padding: 1em;
+}
+
+.ok {
+  background: #5eb95e;
+}
+
+.nok {
+  background: #dd514c;
+}
+
+.unknown {
+  background: #e6e6e6;
+}

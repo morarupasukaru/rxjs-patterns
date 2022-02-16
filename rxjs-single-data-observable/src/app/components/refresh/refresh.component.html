@@ -1,0 +1,7 @@
+<span *ngIf="(countdownRefresh$ | async) as countdownRefresh; else loading">
+  {{ '(refresh in ' + countdownRefresh + 's)'}}
+</span>
+
+<ng-template #loading>
+  {{ '(loading...)' }}
+</ng-template>

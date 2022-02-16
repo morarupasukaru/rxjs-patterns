@@ -1,0 +1,50 @@
+<h1 class="title has-text-centered">RxJS - map/filter/reduce</h1>
+
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <form class="box">
+      <div class="field">
+        <label class="label">Message</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Textarea" [(ngModel)]="inputText" name="inputText" required></textarea>
+        </div>
+      </div>
+
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <input class="input" type="text" placeholder="filter with keyword" [(ngModel)]="inputFilter" name="inputKeyword">
+        </div>
+        <div class="control">
+          <button class="button is-info" [disabled]="!inputFilter" (click)="onSubmit()">
+            map/filter/reduce
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="columns" *ngIf="(output$ | async) as output">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">
+          Filtered words
+        </p>
+        <div class="subtitle">
+          <div class="tags are-medium">
+            <span class="tag" *ngFor="let word of output">{{ word }}</span>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <p class="card-footer-item">
+      <span>
+        {{ output.length }} matching words found
+      </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</div>

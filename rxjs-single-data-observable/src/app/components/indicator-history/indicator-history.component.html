@@ -1,0 +1,20 @@
+<ng-container *ngIf="(indicator$ | async) as indicator; else loading">
+  <h1>{{ indicator?.name }}</h1>
+
+  <div class="pure-g">
+    <div *ngFor="let status of indicator.status" class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+      <app-indicator-history-status [status]="status"></app-indicator-history-status>
+    </div>
+  </div>
+
+  <p class="refresh">
+    <app-refresh></app-refresh>
+  </p>
+</ng-container>
+
+<ng-template #loading>
+  <h1>Indicator</h1>
+  <h2>Loading...</h2>
+</ng-template>
+
+<a class="pure-button" routerLink="../">back to indicators</a>

@@ -1,0 +1,32 @@
+<app-add-item-button></app-add-item-button>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
+
+<div *ngIf="(items$ | async) as items; else loading">
+    <div *ngIf="!items.length">
+      <strong>Shopping list is empty, please add item</strong>
+    </div>
+
+    <div class="grid" *ngIf="items.length">
+      <div></div>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col">Quantity</th>
+          <th scope="col">Description</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="item" *ngFor="let item of items" (click)="editItem(item)">
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.description }}</td>
+          <td><app-edit-icon></app-edit-icon></td>
+        </tr>
+        </tbody>
+      </table>
+      <div></div>
+    </div>
+</div>

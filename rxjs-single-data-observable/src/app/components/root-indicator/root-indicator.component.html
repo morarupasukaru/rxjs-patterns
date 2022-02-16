@@ -1,0 +1,14 @@
+<!-- one unique async pipe is required on the single data observable -->
+<ng-container *ngIf="(counts$ | async) as counts">
+  <div class="splash-container"
+       [ngClass]="{
+       'splash-container-ok': !counts.failures,
+       'splash-container-nok': counts.failures}">
+    <a routerLink="/indicators" class="splash">
+      <h1 class="splash-head">{{ counts.failures ? 'RED INDICATORS' : 'GREEN INDICATORS' }}</h1>
+      <p class="splash-subhead">
+        {{ counts.failures + ' failed of ' + counts.count + ' indicators ' }}  <app-refresh></app-refresh>
+      </p>
+    </a>
+  </div>
+</ng-container>

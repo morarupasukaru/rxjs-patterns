@@ -1,0 +1,22 @@
+<div *ngIf="errorMessage">
+  <strong>{{ errorMessage}}</strong>
+</div>
+<form (ngSubmit)="saveItem()" #form="ngForm">
+  <label for="quantity">Quantity</label>
+  <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required [(ngModel)]="item.quantity">
+
+  <label for="description">Description</label>
+  <input type="text" id="description" name="description" placeholder="Enter description" required [(ngModel)]="item.description">
+
+  <div class="grid">
+    <div>
+      <button type="submit" [disabled]="form.invalid">{{ item.id ? 'Update': 'Add' }}</button>
+    </div>
+    <div>
+      <button class="secondary" (click)="cancel()">Cancel</button>
+    </div>
+    <div *ngIf="item.id">
+      <button class="secondary outline" (click)="deleteItem()">Delete</button>
+    </div>
+  </div>
+</form>

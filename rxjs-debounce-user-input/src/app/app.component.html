@@ -1,0 +1,26 @@
+<h1 class="flex center">Debounce User Input Example</h1>
+
+<fieldset class="flex three center">
+  <label><input type="search" placeholder="Type your search" #searchInput></label>
+</fieldset>
+
+<div class="flex center">
+  <div></div>
+  <div>
+    <table class="primary">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Text</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let line of lines$ | async">
+        <td>{{ line.nb }}</td>
+        <td>{{ line.text }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+</div>

@@ -1,0 +1,30 @@
+.ok {
+  background: #5eb95e;
+}
+
+.nok {
+  background: #dd514c;
+}
+
+.unknown {
+  background: #e6e6e6;
+}
+
+div {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  text-align: center;
+}
+
+h3, p {
+  color: white;
+  display: inline-block;
+}
+
+h3 {
+  margin-right: 0.3em;
+}
+
+p {
+  font-style: italic;
+}

@@ -1,0 +1,30 @@
+<ng-container *ngIf="(indicators$ | async) as indicators; else loading">
+  <ng-container *ngIf="indicators.length > 0; else noIndicator">
+    <h1>Indicators</h1>
+    <div class="pure-g">
+      <div *ngFor="let indicator of indicators" class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+        <app-indicator [indicator]="indicator"></app-indicator>
+      </div>
+    </div>
+  </ng-container>
+
+  <p class="refresh">
+    <app-refresh></app-refresh>
+  </p>
+</ng-container>
+
+<ng-template #loading>
+  <h1>Indicators</h1>
+  <h2>Loading...</h2>
+</ng-template>
+
+<ng-template #noIndicator>
+  <h1>Indicators</h1>
+  <h2 class="no-indicators">No indicators found!</h2>
+
+  <div class="refresh">
+    <app-refresh></app-refresh>
+  </div>
+</ng-template>
+
+<a class="pure-button" routerLink="/">back to home</a>

@@ -1,0 +1,44 @@
+<h1 class="text-center">Error Handling Strategies</h1>
+
+<div class="container"  *ngIf="(jobs$ | async) as jobs">
+  <table class="table">
+    <thead class="table-light">
+    <tr>
+      <th scope="col">Strategy</th>
+      <th scope="col">Result</th>
+      <th scope="col">Completed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let job of jobs">
+      <th scope="row">{{ job.name }}</th>
+      <td>
+        <ng-container *ngFor="let step of job.steps; let last = last">
+          <span *ngIf="step.status === StepStatus.SUCCESS" class="badge rounded-pill bg-success">
+            {{ step.text }}
+            </span>
+          <span *ngIf="step.status === StepStatus.ERROR" class="badge rounded-pill bg-danger">
+            {{ step.text }}
+          </span>
+          <span *ngIf="step.status === StepStatus.WAITING" class="badge rounded-pill bg-secondary">
+            {{ step.text }}
+          </span>
+          <app-spinner *ngIf="step.status === StepStatus.LOADING"></app-spinner>
+          <app-arrow *ngIf="!last"></app-arrow>
+        </ng-container>
+      </td>
+      <td>
+        <app-spinner *ngIf="job.status === JobStatus.RUNNING"></app-spinner>
+        <span *ngIf="job.status === JobStatus.TERMINATED" class="badge rounded-pill bg-secondary">Completed</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="d-grid col-4 mx-auto">
+    <button type="button"
+            class="btn btn-primary btn-lg"
+            [disabled]="isStartDisabled(jobs)"
+            (click)="start()">Start</button>
+  </div>
+</div>

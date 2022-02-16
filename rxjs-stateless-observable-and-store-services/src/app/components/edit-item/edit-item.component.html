@@ -1,0 +1,7 @@
+<div class="grid" *ngIf="(editedItem$ | async) as editItem">
+  <div></div>
+  <div>
+    <app-edit-item-form [item]="editItem"></app-edit-item-form>
+  </div>
+  <div></div>
+</div>
