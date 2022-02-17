@@ -14,4 +14,4 @@ Compilations of sandbox projects that illustrate RxJS patterns; see [RxJS summar
 * [error handling strategies](./rxjs-error-handling/README.md)
     show in actions different ways to handle error with RxJS
 
-*(last update 16.02.2022)*
+*(Projects mainly written in mai/june 2021)*
